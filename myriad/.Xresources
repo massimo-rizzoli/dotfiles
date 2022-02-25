@@ -1,0 +1,43 @@
+! special
+urxvt.foreground:   #d0d0d0
+urxvt.background:   #151515
+urxvt.cursorColor:  #d0d0d0
+
+! black
+urxvt.color0:       #151515
+urxvt.color8:       #505050
+
+! red
+urxvt.color1:       #ac4142
+urxvt.color9:       #ac4142
+
+! green
+urxvt.color2:       #90a959
+urxvt.color10:      #90a959
+
+! yellow
+urxvt.color3:       #f4bf75
+urxvt.color11:      #f4bf75
+
+! blue
+urxvt.color4:       #6a9fb5
+urxvt.color12:      #6a9fb5
+
+! magenta
+urxvt.color5:       #aa759f
+urxvt.color13:      #aa759f
+
+! cyan
+urxvt.color6:       #75b5aa
+urxvt.color14:      #75b5aa
+
+! white
+urxvt.color7:       #d0d0d0
+urxvt.color15:      #f5f5f5
+
+
+urxvt.font: xft:Hack Nerd Font:style=Bold:antialias=true:hinting=true:pixelsize=18
+
+! cursor theme
+Xcursor.theme: Breeze-Adapta-Cursor
+Xcursor.size: 16

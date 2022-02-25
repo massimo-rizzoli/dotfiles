@@ -1,0 +1,29 @@
+Config { font = "xft:Hack Nerd Font:style=Bold:antialias=true:hinting=true:pixelsize=20"
+       , additionalFonts = ["xft:Hack Nerd Font:style=Bold:antialias=true:hinting=true:pixelsize=27"]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#272a34"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "/home/maxyimus/.xmonad/xpm" --default: "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [  Run DateZone "\xf133 %_d/%m/%Y (%H:%M)" "en_GB.utf8" "Europe/Rome" "date" 10
+                    ,  Run DynNetwork ["-t", "<dev> \xf0ab <rx>Kb \xf0aa <tx>Kb","--", "--devices", "wlan0,wlan1"] 20
+                    ,  Run Volume "default" "Speakers" [] 10
+                    ,  Run CommandReader "nowplaying" "nowplaying"
+                    ,  Run CommandReader "volumeinfo" "volumeinfo"
+                    ,  Run Kbd [("us(intl)","intl")]
+                    ,  Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<fn=1><fc=#277FFF> </fc></fn><fc=#666666><fn=1>|</fn></fc> %StdinReader%}{ %nowplaying% %dynnetwork% <fc=#666666><fn=1>|</fn></fc> %volumeinfo% <fc=#666666><fn=1>|</fn></fc> %kbd% <fc=#666666><fn=1>|</fn></fc> <fc=#FF8A18>%date%</fc>"
+       }

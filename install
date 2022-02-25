@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Initialise variables
+if [[ -z $STOW_PKGS ]]; then
+  STOW_PKGS='alacritty gtk-3.0 myriad networkmanager-dmenu nvim picom xmobar xmonad'
+fi
+if [[ -z $STOW_GLOBAL_PKGS ]]; then
+  STOW_GLOBAL_PKGS='globals'
+fi
+
+if [[ -z $DOTFILES ]]; then
+  DOTFILES=~/dotfiles/
+fi
+
+
+# Parse parameters
+ADD_ARGS=''
+STOW_ACTION='-R'
+ACTION='restow'
+for param in $@; do
+  case $param in
+    'dryrun')
+      ADD_ARGS+='-nv'
+      ;;
+    '-S')
+      STOW_ACTION=$param
+      ACTION='stow'
+      ;;
+    '-D')
+      STOW_ACTION=$param
+      ACTION='unstow'
+      ;;
+  esac
+done
+
+
+# Move to stow directory
+pushd $DOTFILES
+
+# Restow packages
+echo "=> Pakcages to $ACTION: $STOW_PKGS"
+stow $ADD_ARGS $STOW_ACTION $STOW_PKGS
+
+# Restow globals
+echo "=> Global packages to $ACTION: $STOW_GLOBAL_PKGS"
+sudo stow $ADD_ARGS $STOW_ACTION --target=/ $STOW_GLOBAL_PKGS
+
+# Go back to previous directory
+popd
