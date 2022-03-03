@@ -47,6 +47,7 @@ Plug 'josa42/nvim-lightline-lsp'
 ""Plug 'jmcantrell/vim-virtualenv'
 Plug 'nvim-lua/completion-nvim'
 "Plug 'HallerPatrick/py_lsp.nvim', { 'branch': 'main' }
+Plug 'lambdalisue/vim-pyenv'
 
 " Smart commenting
 Plug 'preservim/nerdcommenter'
@@ -155,6 +156,8 @@ noremap ;: :%s:::g<Left><Left><Left>
 "nnoremap <leader>lo <cmd>silent !evince main.pdf &<cr>
 nnoremap <leader>lo <cmd>silent !evince README.pdf &<cr>
 
+" Python run current file
+nnoremap <leader>pr <cmd>!python %<cr>
 
 
 

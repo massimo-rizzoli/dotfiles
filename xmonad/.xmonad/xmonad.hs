@@ -171,7 +171,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm                , xK_f     ), spawn "firefox")
     , ((modm .|. shiftMask  , xK_f     ), spawn "firefox --private-window")
     , ((modm                , xK_e     ), spawn "emacs")
-    , ((modm                , xK_r     ), spawn "alacritty --command ranger")
+    , ((modm                , xK_r     ), spawn "alacritty --title=Ranger --command ranger")
     , ((modm                , xK_p     ), spawn "killall pavucontrol ; pavucontrol")
     --, ((modm                , xK_c     ), spawn "killall nm-connection-editor ; nm-connection-editor")
     , ((modm                , xK_c     ), spawn "killall networkmanager_dmenu ; networkmanager_dmenu")
@@ -294,6 +294,7 @@ myLayout = mkToggle (single NBFULL) $ smartBorders $ mySpacing 10 $ myLayoutNoSp
 myManageHook = composeAll
     [ className =? "Gimp"           --> doFloat
     , className =? "zoom"           --> doFloat
+    , className =? "matplotlib"     --> doFloat
     , resource  =? "desktop_window" --> doIgnore ]
 
 ------------------------------------------------------------------------

@@ -35,7 +35,6 @@ set clipboard+=unnamedplus
 
 " AirLatex username
 "let g:AirLatexUsername='cookies:overleaf_session2=$OVERLEAF'
-let g:AirLatexUsername='cookies:overleaf_session2='
 let g:AirLatexBuftype='NORMAL'
 "let g:AirLatexLogLevel="DEBUG"
 "let g:AirLatexLogFile='AirLatex.log'
