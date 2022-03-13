@@ -40,11 +40,12 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 #aliases
 #command -v <new_command> &> /dev/null && alias <...>=<...>
 alias ls='lsd --group-dirs first'
-alias top='bashtop'
+alias top='btop'
 alias cat='bat --pager=never'
 alias less='bat'
 alias vim='nvim'
-alias vimw='alacritty --option font.size=16.0 font.normal.style=Normal --title Neovim --working-directory=. --command nvim & disown'
+#alias vimw='alacritty --option font.size=16.0 font.normal.style=Normal --title Neovim --working-directory=. --command nvim & disown'
+alias vimw="$EDITOR & disown"
 alias nvimw='vimw'
 alias rangerw='alacritty --title=Ranger --working-directory=. --command ranger & disown'
 
