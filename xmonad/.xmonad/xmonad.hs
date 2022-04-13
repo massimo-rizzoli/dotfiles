@@ -202,7 +202,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((altgrMod .|. controlMask, xK_Return), spawn $ "playerctl --player=" ++ myPlayer ++ " loop Track")
     , ((altgrMod .|. shiftMask  , xK_Return), spawn $ "playerctl --player=" ++ myPlayer ++ " loop None")
     -- Screen capture
-    , ((0                       , xK_Print ), spawn $ "flameshot gui")
+    , ((0                       , xK_Print ), spawn "flameshot gui")
     -- Switch dark mode
     , ((modm .|. shiftMask      , xK_r     ), toggleDark)
     ]

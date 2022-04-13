@@ -2,7 +2,7 @@
 
 # Initialise variables
 if [[ -z $STOW_PKGS ]]; then
-  STOW_PKGS='alacritty gtk-3.0 myriad networkmanager-dmenu nvim picom xmobar xmonad'
+  STOW_PKGS='alacritty gtk-3.0 myriad networkmanager-dmenu nvim picom ranger xmobar xmonad'
 fi
 if [[ -z $STOW_GLOBAL_PKGS ]]; then
   STOW_GLOBAL_PKGS='globals'

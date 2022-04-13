@@ -48,6 +48,7 @@ alias vim='nvim'
 alias vimw="$EDITOR & disown"
 alias nvimw='vimw'
 alias rangerw='alacritty --title=Ranger --working-directory=. --command ranger & disown'
+alias dragon='dragon-drop --all --and-exit'
 
 
 #KEYBINDS
