@@ -7,6 +7,7 @@ Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
 
 Plug 'gruvbox-community/gruvbox'
 
@@ -171,13 +172,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-""lua << EOF
-""require'py_lsp'.setup {
-""  host_python = "/usr/bin/python3"
-""}
-""EOF
-
-
 
 " Autopairs setup
 lua require('nvim-autopairs').setup{}
@@ -198,6 +192,9 @@ augroup MY_GROUP
 
   " before writing a buffer, for all file types, call TrimWhiteSpace()
   autocmd BufWritePre * :call TrimWhitespace()
+
+  " disable filetype plugin (issues with shiftwidth for python)
+  autocmd BufRead,BufNewFile,BufNew *.py :set tabstop=2 | set softtabstop=2 | set shiftwidth=2 | set expandtab
 
   " lsp auto-format
   autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)

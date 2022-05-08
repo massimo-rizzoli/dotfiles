@@ -20,3 +20,6 @@ nnoremap <leader>xm <cmd>lua require('mylua.telescope').search_xmonaddotfiles({h
 " Open file browser
 "nnoremap <leader>. <cmd>lua require('telescope.builtin').file_browser({hidden=1,})<cr>
 nnoremap <leader>. <cmd>lua require 'telescope'.extensions.file_browser.file_browser({hidden=1,})<cr>
+
+" Open project browser
+nnoremap <leader>fp <cmd>lua require'telescope'.extensions.project.project({hidden_files=true})<cr>

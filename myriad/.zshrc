@@ -16,7 +16,6 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 setopt appendhistory
-bindkey -e
 
 ###################################################################
 #promptinit
@@ -49,6 +48,22 @@ alias vimw="$EDITOR & disown"
 alias nvimw='vimw'
 alias rangerw='alacritty --title=Ranger --working-directory=. --command ranger & disown'
 alias dragon='dragon-drop --all --and-exit'
+
+
+#functions and shortcuts
+funcion run-rangerw() {
+  zle kill-whole-line;
+  zle -U 'rangerw'$'\r';
+}
+zle -N run-rangerw
+bindkey '^R' run-rangerw
+
+funcion run-nvimw() {
+  zle kill-whole-line;
+  zle -U 'nvimw'$'\r';
+}
+zle -N run-nvimw
+bindkey '^V' run-nvimw
 
 
 #KEYBINDS
