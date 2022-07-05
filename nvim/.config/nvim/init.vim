@@ -29,6 +29,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Orgmode for nvim (at least I can see the agenda with it)
 Plug 'nvim-orgmode/orgmode'
+Plug 'dhruvasagar/vim-table-mode'
 " Plug 'powentan/vim-orgmode'
 " org bulletpoints
 Plug 'akinsho/org-bullets.nvim', { 'branch': 'main'}
@@ -159,6 +160,7 @@ nnoremap <leader>lo <cmd>silent !evince README.pdf &<cr>
 
 " Python run current file
 nnoremap <leader>pr <cmd>!python %<cr>
+nnoremap <leader>pd oimport pdb; pdb.set_trace()<esc>_
 
 
 
@@ -194,7 +196,7 @@ augroup MY_GROUP
   autocmd BufWritePre * :call TrimWhitespace()
 
   " disable filetype plugin (issues with shiftwidth for python)
-  autocmd BufRead,BufNewFile,BufNew *.py :set tabstop=2 | set softtabstop=2 | set shiftwidth=2 | set expandtab
+  autocmd BufRead, BufNewFile, BufNew *.py :set tabstop=2 | set softtabstop=2 | set shiftwidth=2 | set expandtab
 
   " lsp auto-format
   autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
@@ -212,5 +214,8 @@ augroup MY_GROUP
 
   " highlight when yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank{timeout=100}
+
+  " Set .cff filetype to yaml
+  autocmd BufRead, BufNewFile, BufNew *.cff :set filetype yaml
 
 augroup END

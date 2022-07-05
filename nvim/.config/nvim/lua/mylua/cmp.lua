@@ -14,8 +14,8 @@ local cmp = require'cmp'
 local tab_menu_next = function(fallback)
   if cmp.visible() then
     cmp.select_next_item()
-  elseif vim.fn['vsnip#available'](1) == 1 then
-    feedkey('<Plug>(vsnip-expand-or-jump)', '')
+  --elseif vim.fn['vsnip#available'](1) == 1 then
+  --  feedkey('<Plug>(vsnip-expand-or-jump)', '')
   elseif has_words_before() then
     cmp.complete()
   else
@@ -23,11 +23,14 @@ local tab_menu_next = function(fallback)
   end
 end
 
-local tab_menu_prev = function()
+local tab_menu_prev = function(fallback)
   if cmp.visible() then
     cmp.select_prev_item()
-  elseif vim.fn['vsnip#jumpable'](-1) == 1 then
-    feedkey('<Plug>(vsnip-jump-prev)', '')
+  --elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+  --  feedkey('<Plug>(vsnip-jump-prev)', '')
+  else
+    --feedkey('<S-Tab>', 'n')
+    fallback()
   end
 end
 
