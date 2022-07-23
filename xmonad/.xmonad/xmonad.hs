@@ -1,6 +1,6 @@
 import Data.Maybe (fromJust)
 import Data.Monoid
-import Data.List (isSubsequenceOf)
+import Data.List (isSubsequenceOf, intercalate)
 --import Data.IORef.MonadIO (liftIO)
 import Graphics.X11.ExtraTypes.XF86
 import System.Exit
@@ -66,16 +66,23 @@ myFocusedBorderColor = "#47D4B9"
 myPlayer:: String
 myPlayer = "vlc"
 
+sink:: [[Char]]-- to change volume on a sink other than the default (for pamixer)
+--sink = [] -- empty for default sink
+sink = ["--sink", "alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo"]
+
 --altgrMod = mod5Mask
 altgrMod = mod3Mask
 --altgrMod = 0x6c
 
+params = sink ++ ["--get-mute"]
+
 --toggleMute :: IO String
 toggleMute  = do
-  out <- runProcessWithInput "pamixer" ["--get-volume-human"] []
-  if out == "muted\n"
-    then spawn "pamixer -u"
-    else spawn "pamixer -m"
+  out <- runProcessWithInput "pamixer" params []
+  --spawn $ "xmessage " ++ out
+  if out == "true\n"
+    then spawn $ "pamixer " ++ (intercalate " " sink) ++ " -u"
+    else spawn $ "pamixer " ++ (intercalate " " sink) ++ " -m"
   --return out
 
 toggleDark  = do
@@ -164,8 +171,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -----------------------------------------------
     -- My keys ----- find keys: cat /usr/include/X11/keysymdef.h
     -- Volume keys
-    , ((0                 , xF86XK_AudioLowerVolume), spawn "pamixer -d 5")
-    , ((0                 , xF86XK_AudioRaiseVolume), spawn "pamixer -i 5")
+    , ((0                 , xF86XK_AudioLowerVolume), spawn $ "pamixer " ++ (intercalate " " sink) ++ " -d 5")
+    , ((0                 , xF86XK_AudioRaiseVolume), spawn $ "pamixer " ++ (intercalate " " sink) ++ " -i 5")
     , ((0                 , xF86XK_AudioMute), toggleMute)
     -- Open Programs
     , ((modm                , xK_f     ), spawn "firefox")

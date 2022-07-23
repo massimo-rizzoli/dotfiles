@@ -4,7 +4,6 @@ call plug#begin('$HOME/.vim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-"Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
@@ -18,8 +17,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'mbbill/undotree'
 
 " Autocomplete
-"Plug 'hrsh7th/nvim-compe'
-" youcompleteme?
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main'}
 Plug 'hrsh7th/cmp-buffer', { 'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp/', { 'branch': 'main'}
@@ -27,11 +24,10 @@ Plug 'hrsh7th/cmp-path', { 'branch': 'main'}
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Orgmode for nvim (at least I can see the agenda with it)
+" Orgmode for nvim
 Plug 'nvim-orgmode/orgmode'
 Plug 'dhruvasagar/vim-table-mode'
-" Plug 'powentan/vim-orgmode'
-" org bulletpoints
+" Org Bulletpoints
 Plug 'akinsho/org-bullets.nvim', { 'branch': 'main'}
 
 " nvim-colorizer
@@ -40,15 +36,11 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Lightline bar
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
-"return luaeval('vim.diagnostic.get(' . bufnr() . ', [[' . a:level . ']])') || 0
 " lsp status for lightline
 Plug 'josa42/nvim-lightline-lsp'
-"Plug 'massimo-rizzoli/nvim-lightline-lsp'
 
-" vim virtualenv (requires pynvim: see help provider-python)
-""Plug 'jmcantrell/vim-virtualenv'
+" Vim Virtualenv (requires pynvim: see help provider-python)
 Plug 'nvim-lua/completion-nvim'
-"Plug 'HallerPatrick/py_lsp.nvim', { 'branch': 'main' }
 Plug 'lambdalisue/vim-pyenv'
 
 " Smart commenting
@@ -56,9 +48,6 @@ Plug 'preservim/nerdcommenter'
 
 " Autopairs
 Plug 'windwp/nvim-autopairs'
-
-" VimBeGood game
-"Plug 'ThePrimeagen/vim-be-good'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -72,13 +61,10 @@ Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main'}
 Plug 'massimo-rizzoli/AirLatex.vim', {'do': ':UpdateRemotePlugins'}
 
 " Dashboard
-"Plug 'glepnir/dashboard-nvim'
 Plug'goolord/alpha-nvim', { 'branch': 'main'}
 
-" ReStructuredText previewer
-"Plug 'Rykka/InstantRst'
-
 call plug#end()
+
 
 colorscheme gruvbox
 " Transparent background
@@ -87,81 +73,12 @@ colorscheme gruvbox
 
 set termguicolors
 
-"" Require configurations
-lua require('mylua')
-
-
-
-"" Remaps
 " use space as leader
 let mapleader = ' '
-" mode lhs rhs
-" n normal mode, nore no recursive remapping, map map
 
-" Y behave as other vim capital letters
-nnoremap Y y$
 
-" Keep cursor centered
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap J mzJ'z
-
-" Break undo sequence in insert mode
-inoremap . .<C-g>u
-inoremap , ,<C-g>u
-inoremap / /<C-g>u
-inoremap <enter> <enter><c-g>u
-inoremap <space> <space><c-g>u
-
-" Jumplist
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-
-" Moving text
-vnoremap <silent> <M-j> :m '>+1<cr>gv=gv
-vnoremap <silent> <M-k> :m '<-2<cr>gv=gv
-inoremap <silent> <M-j> <esc>:m .+1<cr>==a
-inoremap <silent> <M-k> <esc>:m .-2<cr>==a
-nnoremap <silent> <M-j> :m .+1<cr>==
-nnoremap <silent> <M-k> :m .-2<cr>==
-"horizontal movement
-vnoremap <silent> <M-l> dpgvlol
-vnoremap <silent> <M-h> dhhpgvhoh
-
-" Registers remaps
-" send deletion to void, keep copied text
-vnoremap p "_dP
-
-" Set working directory ad the containing folder of the opened file
-nnoremap <leader>cd <cmd>cd %:p:h \| pwd<cr>
-" Set working directory to the home directory
-nnoremap <leader>hcd <cmd>cd $HOME \| pwd<cr>
-
-" Reselect after indenting
-vnoremap > >gv
-vnoremap < <gv
-
-" Latex open preview
-nnoremap <leader>lp <cmd>silent !latexmk -silent -pv -pdf -synctex=1 -interaction=nonstopmode -file-line-error<cr>
-" Latex open preview verbose
-nnoremap <leader>lv <cmd>!latexmk -silent -pv -pdf -synctex=1 -interaction=nonstopmode -file-line-error<cr>
-" Latex create .latexmkrc
-nnoremap <leader>lrc <cmd>silent !cp $HOME/Templates/.latexmkrc ./.latexmkrc<cr>
-
-" Search & Replace shortcuts
-noremap ;; :s:::g<Left><Left><Left>
-noremap ;: :%s:::g<Left><Left><Left>
-" confirm each substitution
-"noremap ;' :%s:::cg<Left><Left><Left><Left>
-
-" Open main.pdf
-"nnoremap <leader>lo <cmd>silent !evince main.pdf &<cr>
-nnoremap <leader>lo <cmd>silent !evince README.pdf &<cr>
-
-" Python run current file
-nnoremap <leader>pr <cmd>!python %<cr>
-nnoremap <leader>pd oimport pdb; pdb.set_trace()<esc>_
-
+"" Require configurations
+lua require('mylua')
 
 
 " Treesitter config
@@ -179,7 +96,6 @@ EOF
 lua require('nvim-autopairs').setup{}
 
 
-
 fun! TrimWhitespace()
   let l:save = winsaveview()
   keeppatterns %s/\s\+$//e
@@ -188,15 +104,12 @@ endfun
 " Autocommands
 augroup MY_GROUP
 
-  " Reset only my autocmds when shout out (so %)
-  " (avoid having a listener for each call of of so %)
+  " Reset only my autocmds when sourcing files (so %)
+  " (avoid having a listener for each call of so %)
   autocmd!
 
   " before writing a buffer, for all file types, call TrimWhiteSpace()
   autocmd BufWritePre * :call TrimWhitespace()
-
-  " disable filetype plugin (issues with shiftwidth for python)
-  autocmd BufRead, BufNewFile, BufNew *.py :set tabstop=2 | set softtabstop=2 | set shiftwidth=2 | set expandtab
 
   " lsp auto-format
   autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
@@ -216,6 +129,9 @@ augroup MY_GROUP
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank{timeout=100}
 
   " Set .cff filetype to yaml
-  autocmd BufRead, BufNewFile, BufNew *.cff :set filetype yaml
+  autocmd BufRead,BufNewFile,BufNew *.cff set filetype=yaml
+
+  " xmobar set file type (cannot use spaces in between commas and events)
+  autocmd BufRead,BufNewFile,BufNew xmobarrc set filetype=haskell
 
 augroup END

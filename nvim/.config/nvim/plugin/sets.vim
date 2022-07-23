@@ -4,11 +4,6 @@ set nu
 set nohlsearch
 set hidden
 set noerrorbells
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
 set noswapfile
 set nobackup
 set undodir=$HOME/.vim/undodir
@@ -20,15 +15,24 @@ set completeopt=menuone,noinsert,noselect
 " set colorcolumn=80
 set signcolumn=yes
 set guifont="Hack Nerd Font Mono":h40
-" since lightline shows the status hide --INSERT-- etc.
+" since lightline shows the status, hide --INSERT-- etc.
 set noshowmode
+
+" tab/spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+"set noexpandtab
+set smartindent
+" needed because of line 117 of /usr/share/nvim/runtime/ftplugin/python.vim
+let g:python_recommended_style=0
 
 " Default tex
 let g:tex_flavor = "latex"
 
 " Default python interpreter path
 let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
-"let g:python3_host_prog = '$HOME/.pyenv/versions/ffdnet/bin/python'
 
 " Clipboard (requires xclip)
 set clipboard+=unnamedplus
@@ -38,9 +42,3 @@ set clipboard+=unnamedplus
 let g:AirLatexBuftype='NORMAL'
 "let g:AirLatexLogLevel="DEBUG"
 "let g:AirLatexLogFile='AirLatex.log'
-
-" Dashboard
-"let g:dashboard_default_executive ='telescope.nvim'
-
-"instant rst
-"let g:instant_rst_port=50000

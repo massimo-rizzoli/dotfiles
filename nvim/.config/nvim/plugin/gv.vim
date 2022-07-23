@@ -1,6 +1,6 @@
 " commit browser
-nnoremap <leader>gv :GV<cr>
+nnoremap <Leader>gv :GV<CR>
 " only commits affecting current file
-"nnoremap <leader>gv :GV!<cr>
+"nnoremap <Leader>gv :GV!<CR>
 " fills location list with revisions of current file
-"nnoremap <leader>gv? :GV?<cr>
+"nnoremap <Leader>gv? :GV?<CR>

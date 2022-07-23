@@ -1,25 +1,25 @@
 " ps project search
-"nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fr <cmd>Telescope oldfiles<cr>
-nnoremap <leader>gb <cmd>Telescope git_branches<cr>
+"nnoremap <Leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <Leader>ff <Cmd>Telescope find_files<CR>
+nnoremap <Leader>fg <Cmd>Telescope live_grep<CR>
+nnoremap <Leader>fb <Cmd>Telescope buffers<CR>
+nnoremap <Leader>fh <Cmd>Telescope help_tags<CR>
+nnoremap <Leader>fr <Cmd>Telescope oldfiles<CR>
+nnoremap <Leader>gb <Cmd>Telescope git_branches<CR>
 
-nnoremap <leader>fm <cmd>Telescope man_pages<cr>
+nnoremap <Leader>fm <Cmd>Telescope man_pages<CR>
 
-nnoremap <leader>fcf <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <Leader>fcf <Cmd>Telescope current_buffer_fuzzy_find<CR>
 
 " Open nvim config files
-nnoremap <leader>vrc <cmd>lua require('mylua.telescope').search_nvimdotfiles()<cr>
+nnoremap <Leader>vrc <Cmd>lua require('mylua.telescope').search_nvimdotfiles()<CR>
 
 " Open xmonad config files
-nnoremap <leader>xm <cmd>lua require('mylua.telescope').search_xmonaddotfiles({hidden=1,})<cr>
+nnoremap <Leader>xm <Cmd>lua require('mylua.telescope').search_xmonaddotfiles({hidden=1,})<CR>
 
 " Open file browser
-"nnoremap <leader>. <cmd>lua require('telescope.builtin').file_browser({hidden=1,})<cr>
-nnoremap <leader>. <cmd>lua require 'telescope'.extensions.file_browser.file_browser({hidden=1,})<cr>
+"nnoremap <Leader>. <Cmd>lua require('telescope.builtin').file_browser({hidden=1,})<CR>
+nnoremap <Leader>. <Cmd>lua require 'telescope'.extensions.file_browser.file_browser({hidden=1,})<CR>
 
 " Open project browser
-nnoremap <leader>fp <cmd>lua require'telescope'.extensions.project.project({hidden_files=true})<cr>
+nnoremap <Leader>fp <Cmd>lua require'telescope'.extensions.project.project({hidden_files=true})<CR>

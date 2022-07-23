@@ -46,7 +46,8 @@ alias vim='nvim'
 #alias vimw='alacritty --option font.size=16.0 font.normal.style=Normal --title Neovim --working-directory=. --command nvim & disown'
 alias vimw="$EDITOR & disown"
 alias nvimw='vimw'
-alias rangerw='alacritty --title=Ranger --working-directory=. --command ranger & disown'
+#alias rangerw='alacritty --title=Ranger --working-directory=. --command ranger & disown'
+alias rangerw="$FILE_BROWSER & disown"
 alias dragon='dragon-drop --all --and-exit'
 
 

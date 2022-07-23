@@ -1,1 +1,1 @@
-nnoremap <leader>la :AirLatex<CR>
+nnoremap <Leader>la :AirLatex<CR>

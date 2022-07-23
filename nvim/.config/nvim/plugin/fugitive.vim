@@ -1,3 +1,3 @@
-nnoremap <leader>gl :diffget //3<cr>
-nnoremap <leader>gh :diffget //2<cr>
-nnoremap <leader>gs :G <cr>
+nnoremap <Leader>gl :diffget //3<CR>
+nnoremap <Leader>gh :diffget //2<CR>
+nnoremap <Leader>gs :G <CR>

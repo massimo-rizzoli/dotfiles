@@ -124,4 +124,4 @@ endif
 
 " \ is used before | to pass | as a character
 "nnoremap <C-u> <cmd>UndotreeToggle \| UndotreeFocus<cr>
-nnoremap <A-u> <cmd>UndotreeToggle<cr>
+nnoremap <M-u> <cmd>UndotreeToggle<cr>

@@ -27,7 +27,7 @@ let g:NERDToggleCheckAllLines = 1
 
 
 " Remaps
-"map [count]<leader>cc <plug>NERDCommenterToggle
-map <leader>cc <plug>NERDCommenterToggle
-map <leader>cA <plug>NERDCommenterAppend
-map <leader>c$ <plug>NERDCommenterToEOL
+"map [count]<Leader>cc <plug>NERDCommenterToggle
+map <Leader>cc <plug>NERDCommenterToggle
+map <Leader>cA <plug>NERDCommenterAppend
+map <Leader>c$ <plug>NERDCommenterToEOL

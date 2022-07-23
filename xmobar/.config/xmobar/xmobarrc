@@ -19,7 +19,7 @@ Config { font = "xft:Hack Nerd Font:style=Bold:antialias=true:hinting=true:pixel
                     ,  Run DynNetwork ["-t", "<dev> \xf0ab <rx>Kb \xf0aa <tx>Kb","--", "--devices", "wlan0,wlan1"] 20
                     ,  Run Volume "default" "Speakers" [] 10
                     ,  Run CommandReader "nowplaying" "nowplaying"
-                    ,  Run CommandReader "volumeinfo" "volumeinfo"
+                    ,  Run CommandReader "volumeinfo \"alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo\"" "volumeinfo"
                     ,  Run Kbd [("us(intl)","intl")]
                     ,  Run StdinReader
                     ]

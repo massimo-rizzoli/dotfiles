@@ -1,6 +1,5 @@
 require('mylua.telescope')
 require('mylua.lsp')
---require('mylua.compe')
 require('mylua.cmp')
 require('mylua.orgmode')
 require('mylua.colorizer')
